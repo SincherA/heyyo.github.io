@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
-
+import  { useEffect, useState } from 'react';
+import './NewsApi.css';
 
 
 const NewsApi = () => {
   // State variables
   const [newsData, setNewsData] = useState([]);
-
- 
 
   // Fetch news data
   useEffect(() => {
@@ -16,10 +14,10 @@ const NewsApi = () => {
         const response = await fetch(`https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${import.meta.env.VITE_NEWSAPI}`);
         const data = await response.json();
 
-console.log(data);
+        // console.log(data);
 
         // Update state with news data
-        setNewsData(data);
+        setNewsData(data.articles);
       } catch (error) {
         console.error('Error fetching news data:', error);
       }
@@ -28,18 +26,26 @@ console.log(data);
     fetchNewsData();
   }, []);
 
-  
+  function truncateContent(content) {
+    const maxLength = 300; 
+    const truncated = content.lenght > maxLength ? content.substring(0, maxLength) + '...' : content;
+    return truncated;
+  }
+
   return (
-    <div>
-      {/* Render news data
+    <div className='news-container'>
+      {/* renders news data*/}
       {newsData.map((newsItem) => (
-        <div key={newsItem.id}>
+        <div className='news-card'  key={newsItem.title}>
           <h2>{newsItem.title}</h2>
-          <p>{newsItem.description}</p>
+          {newsItem.urlToImage && <img src={newsItem.urlToImage} alt="News Thumbnail" />}
+          <p>{truncateContent(newsItem.description)}</p>
+          <a href={newsItem.url} target="_blank" rel="noopener noreferrer">
+            Read More
+          </a>
         </div>
-      ))} */}
-    </div>
-  );
+        ))}
+    </div>  );
 };
 
 export default NewsApi;

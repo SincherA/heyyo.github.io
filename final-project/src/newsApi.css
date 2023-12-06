@@ -1,0 +1,36 @@
+.news-container{
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 10px;
+}
+
+.news-card{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 300px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 3px #ccc;
+}
+
+.news-card h2{
+  margin-bottom: 10px;
+}
+
+.news-card p{
+flex-grow: 1;}
+
+.news-card img{
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+
+.news-card a{
+  text-decoration: none;
+  margin-top: 8px;
+  text-align: right;
+}

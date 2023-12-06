@@ -1,5 +1,5 @@
 import  { useEffect, useState } from 'react';
-import './NewsApi.css';
+import './sharedStyles.css'
 
 
 const NewsApi = () => {
@@ -33,10 +33,10 @@ const NewsApi = () => {
   }
 
   return (
-    <div className='news-container'>
+    <div className='card-container'>
       {/* renders news data*/}
       {newsData.map((newsItem) => (
-        <div className='news-card'  key={newsItem.title}>
+        <div className='card'  key={newsItem.title}>
           <h2>{newsItem.title}</h2>
           {newsItem.urlToImage && <img src={newsItem.urlToImage} alt="News Thumbnail" />}
           <p>{truncateContent(newsItem.description)}</p>

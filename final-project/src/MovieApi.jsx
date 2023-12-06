@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import './NewsApi.css'; // Import your CSS file
+import { useEffect, useState } from 'react';
+import './sharedStyles.css'
+
 
 const MovieApi = () => {
   const [movies, setMovies] = useState([]);
@@ -40,10 +41,10 @@ const MovieApi = () => {
   }
 
   return (
-    <div className='news-container'>
+    <div className='card-container'>
       {/* Render movie data */}
       {movies.map((movie) => (
-        <div className='news-card' key={movie.id}>
+        <div className='card' key={movie.id}>
           <h2>{movie.title}</h2>
           {movie.poster_path && <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="Movie Poster" />}
           <p>{truncateOverview(movie.overview)}</p>

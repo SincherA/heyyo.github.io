@@ -1,11 +1,11 @@
-.news-container{
+.card-container{
   display: flex;
   flex-direction: row;
   overflow-x: auto;
   gap: 10px;
 }
 
-.news-card{
+.card{
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
@@ -16,20 +16,20 @@
   box-shadow: 0 0 3px #ccc;
 }
 
-.news-card h2{
+.card h2{
   margin-bottom: 10px;
 }
 
-.news-card p{
+.card p{
 flex-grow: 1;}
 
-.news-card img{
+.card img{
   width: 100%;
   margin-top: 8px;
   border-radius: 4px;
 }
 
-.news-card a{
+.card a{
   text-decoration: none;
   margin-top: 8px;
   text-align: right;

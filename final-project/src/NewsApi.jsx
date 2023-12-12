@@ -1,7 +1,5 @@
 import  { useEffect, useState } from 'react';
 import './sharedStyles.css'
-
-
 const NewsApi = () => {
   // State variables
   const [newsData, setNewsData] = useState([]);

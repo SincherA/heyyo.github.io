@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './sharedStyles.css'
 
-
 const MovieApi = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,11 +30,9 @@ const MovieApi = () => {
     const truncated = overview.length > maxLength ? overview.substring(0, maxLength) + '...' : overview;
     return truncated;
   }
-
   if (loading) {
     return <p>Loading...</p>;
   }
-
   if (error) {
     return <p>Error: {error.message}</p>;
   }

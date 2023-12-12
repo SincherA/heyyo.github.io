@@ -14,7 +14,7 @@ function App() {
       <MovieApi />
       <h2>Music</h2>
       <SpotifyRecommendations />
-    </>
+   </>
   )
 }
 

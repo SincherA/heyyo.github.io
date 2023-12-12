@@ -1,7 +1,7 @@
 import './App.css'
 import NewsApi from './NewsApi.jsx'
 import MovieApi from './MovieApi.jsx'
-import SpotifyRecommendations from './SpotifyRecommendations.js.jsx'
+import SpotifyRecommendations from './SpotifyRecommendations.jsx'
 
 
 function App() {

@@ -1,7 +1,8 @@
-import './App.css'
+import './sharedStyles.css'
 import NewsApi from './NewsApi.jsx'
 import MovieApi from './MovieApi.jsx'
 import SpotifyRecommendations from './SpotifyRecommendations.jsx'
+import MealApi from './MealApi.jsx'
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
       <MovieApi />
       <h2>Music</h2>
       <SpotifyRecommendations />
+      <h2>Food</h2>
+      <MealApi />
    </>
   )
 }

@@ -3,7 +3,7 @@
   flex-direction: row;
   overflow-x: auto;
   gap: 10px;
-}
+} */
 
 .card{
   border: 1px solid #ccc;
@@ -21,16 +21,27 @@
 }
 
 .card p{
-flex-grow: 1;}
+flex-grow: 1;
+}
 
-.card img{
+.card-img{
   width: 100%;
-  margin-top: 8px;
-  border-radius: 4px;
+  height: 150px; /* Adjust the height as needed */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .card a{
   text-decoration: none;
   margin-top: 8px;
-  text-align: right;
+  text-align: right !important;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #007bff; /* Adjust the color as needed */
+  font-weight: bold;
+  margin-top: 8px;
+  display: inline-block;
 }

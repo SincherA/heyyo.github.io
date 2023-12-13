@@ -3,32 +3,50 @@ import './sharedStyles.css';
 
 const MealApi = () => {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
-      .then(response => response.json())
-      .then(data => {
-        // Handle the data here
-        setData(data);
-      })
-      .catch(error => {
-        // Handle any errors here
-        console.error(error);
-      });
+    const fetchMealData = async () => {
+      try {
+        // Fetch meal data from The Meal DB
+        const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
+        const data = await response.json();
+
+        // Update state with meal data
+        setData(data.categories);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMealData();
   }, []);
+
+  function truncateDescription(overview) {
+    const maxLength = 300;
+    const truncated = overview.length > maxLength ? overview.substring(0, maxLength) + '...' : overview;
+    return truncated;
+  }
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
 
   return (
     <div className="card-container">
-      {data && data.categories.map(category => (
+      {/* Render meal data */}
+      {data.map(category => (
         <div key={category.idCategory} className="card">
           <img src={category.strCategoryThumb} alt={category.strCategory} className="card-img" />
           <div className="card-content">
             <h2>{category.strCategory}</h2>
-            <p>
-              {category.strCategoryDescription.length > 150
-                ? category.strCategoryDescription.substring(0, 150) + '...'
-                : category.strCategoryDescription}
-            </p>
+            <p>{truncateDescription(category.strCategoryDescription)}</p>
             <a href={`#/${category.strCategory}`} className="card-link">
               See More
             </a>
@@ -39,4 +57,4 @@ const MealApi = () => {
   );
 };
 
-export default MealApi
+export default MealApi;

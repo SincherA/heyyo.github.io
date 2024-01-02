@@ -9,8 +9,20 @@
 .logo {
   flex-grow: 1;
   color: #ffffff; /* Change text color if needed */
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
+.logo img {
+  width: 30px; /* Replace with the width you want */
+  height: 40px; /* Replace with the height you want */
+  margin-right: 5px; /* Adds some space between the logo and the text */
+}
+.logo h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
 .tabs {
   flex-grow: 2;
   display: flex;

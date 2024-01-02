@@ -2,9 +2,11 @@ import './hero.css'
 const Hero = () => {
   return (
     <div className="hero">
-      <h1>Welcome to my website</h1>
-      <p>Explore and discover amazing things</p>
-      <button>Get Started</button>
+      <h1>HEY'YO is your daily helper</h1>
+        <p>check daily news, find music to listen</p>
+        <p>explore movies and series</p>
+        <p>find delicious recipes to cook</p>
+      <button>Register</button>
     </div>
   );
 };

@@ -1,20 +1,21 @@
 .hero {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 60vh; /* This makes the hero section take up the full viewport height */
+  justify-content:flex-start ;
+  align-items: flex-start;
+  height: 50vh; /* This makes the hero section take up the full viewport height */
   background-image: url('/public/brimage.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 .hero h1 {
   font-size: 2.5em;
   color: #333; /* Replace with the color you want */
+  padding-top: 20px;
 }
 
 .hero p {

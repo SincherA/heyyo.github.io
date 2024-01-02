@@ -21,8 +21,9 @@
 .tabs a {
   text-decoration:solid;
   color: #ffffff;
-  padding: 8px 12px;
+  padding: 13px 18px;
   border-radius: 5px;
+  font-size: 20px;
   /* background-color: #ae3b3b; */
   transition: background-color 0.3s ease; /* Add smooth transition */
 }
@@ -37,7 +38,9 @@
 }
 
 .login-button button {
-  padding: 8px 12px;
+  padding: 10px 35px;
+  margin: 5px;
+  font-size: 1em;
   border: none;
   border-radius: 5px;
   background-color: #ae3b3b;

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Navbar from './Navbar.jsx';
+import Hero from './Hero.jsx'
 import NewsApi from './NewsApi.jsx';
 import MovieApi from './MovieApi.jsx';
 import SpotifyRecommendations from './SpotifyRecommendations.jsx';
@@ -10,6 +11,7 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <Hero />
       <Routes>
         <Route path="/" element={
             <>

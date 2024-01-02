@@ -1,0 +1,34 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* This makes the hero section take up the full viewport height */
+  background-image: url('/public/brimage.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  color: #333; /* Replace with the color you want */
+}
+
+.hero p {
+  font-size: 1.2em;
+  color: #666; /* Replace with the color you want */
+  margin: 20px 0;
+}
+
+.hero button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff; /* Replace with the color you want */
+  background-color: #333; /* Replace with the background color you want */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

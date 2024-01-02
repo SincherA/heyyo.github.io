@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #77282899;
+  background-color: #68B39E;
 }
 
 .logo {
@@ -19,16 +19,16 @@
 }
 
 .tabs a {
-  text-decoration: none;
+  text-decoration:solid;
   color: #ffffff;
   padding: 8px 12px;
   border-radius: 5px;
-  background-color: #ae3b3b;
+  /* background-color: #ae3b3b; */
   transition: background-color 0.3s ease; /* Add smooth transition */
 }
 
 .tabs a:hover {
-  background-color: #d95353; /* Change color on hover */
+  background-color: #438E8F; /* Change color on hover */
 }
 
 .login-button {

@@ -8,6 +8,7 @@
 
 .logo {
   flex-grow: 1;
+  color: #ffffff; /* Change text color if needed */
 }
 
 .tabs {
@@ -17,7 +18,34 @@
   align-items: center;
 }
 
+.tabs a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: #ae3b3b;
+  transition: background-color 0.3s ease; /* Add smooth transition */
+}
+
+.tabs a:hover {
+  background-color: #d95353; /* Change color on hover */
+}
+
 .login-button {
   flex-grow: 1;
   text-align: right;
+}
+
+.login-button button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ae3b3b;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add smooth transition */
+}
+
+.login-button button:hover {
+  background-color: #d95353; /* Change color on hover */
 }

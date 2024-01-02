@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #77282899;
+}
+
+.logo {
+  flex-grow: 1;
+}
+
+.tabs {
+  flex-grow: 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login-button {
+  flex-grow: 1;
+  text-align: right;
+}

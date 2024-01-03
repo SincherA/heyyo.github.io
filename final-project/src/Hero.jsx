@@ -1,5 +1,14 @@
+import { useEffect } from 'react';
+import { databases } from './Appwrite.jsx';
 import './hero.css'
+
 const Hero = () => {
+  useEffect (() => {
+    ( async function run () {
+      await databases.listDocuments (databaseId, collectionsId)
+     }) ()
+  }, [])
+
   return (
     <div className="hero">
       <h1>HEY'YO is your daily helper</h1>

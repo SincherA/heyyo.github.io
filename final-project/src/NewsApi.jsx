@@ -1,18 +1,7 @@
 import { useEffect, useState } from 'react';
-import Slider from "react-slick"
 import './sharedStyles.css'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const NewsApi = () => {
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
-  };
   // State variables
   const [newsData, setNewsData] = useState([]);
 
@@ -44,7 +33,6 @@ const NewsApi = () => {
 
   return (
     <div className='card-container'>
-      <Slider {...settings}>
         {newsData.map((newsItem) => (
           <div className='card' key={newsItem.title}>
             <h2>{newsItem.title}</h2>
@@ -55,8 +43,6 @@ const NewsApi = () => {
             </a>
           </div>
         ))}
-      </Slider>
-
     </div>
   );
 };

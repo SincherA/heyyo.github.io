@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content:flex-start ;
   align-items: flex-start;
-  height: 50vh; /* This makes the hero section take up the full viewport height */
+  height: 70vh; /* This makes the hero section take up the full viewport height */
   background-image: url('/public/brimage.jpeg');
   background-position: center;
   background-repeat: no-repeat;

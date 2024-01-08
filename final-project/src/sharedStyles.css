@@ -1,26 +1,24 @@
-
-/* .card-container {
+*{  box-sizing:border-box;
+}
+.card-container {
   display: flex;
   flex-direction: row;
-  gap: 10px;
-} */
-
-.slick-slide > div {
-  margin: 0 5px;
+  flex-wrap: wrap;
 }
+
 
 .card {
   outline: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
   margin: 5px;
+  width: 20%;
   box-sizing:border-box;
-  transition: transform 0.2s ease-in-out;
 }
 
-.card:hover {
+/* .card:hover {
   transform: scale(1.05);
-}
+} */
 
 .card img {
   width: 100%;

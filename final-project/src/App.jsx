@@ -5,7 +5,7 @@ import NewsApi from './NewsApi.jsx';
 import MovieApi from './MovieApi.jsx';
 import SpotifyRecommendations from './SpotifyRecommendations.jsx';
 import MealApi from './MealApi.jsx';
-import './App.css'
+// import './App.css'
 
 function App() {
   return (

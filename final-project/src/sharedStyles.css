@@ -1,19 +1,21 @@
 
-.card-container {
+/* .card-container {
   display: flex;
   flex-direction: row;
   gap: 10px;
+} */
+
+.slick-slide > div {
+  margin: 0 5px;
 }
 
 .card {
-  border: 1px solid #ccc;
+  outline: 1px solid #ccc;
   border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
-  min-width: 300px; /* Adjust the width as needed */
-  min-height: 250px;
   padding: 20px;
   margin: 5px;
+  box-sizing:border-box;
+  transition: transform 0.2s ease-in-out;
 }
 
 .card:hover {

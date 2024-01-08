@@ -1,6 +1,18 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import Slider from "react-slick"
 import './sharedStyles.css'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const NewsApi = () => {
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+  };
   // State variables
   const [newsData, setNewsData] = useState([]);
 
@@ -25,25 +37,28 @@ const NewsApi = () => {
   }, []);
 
   function truncateContent(content) {
-    const maxLength = 300; 
+    const maxLength = 300;
     const truncated = content.lenght > maxLength ? content.substring(0, maxLength) + '...' : content;
     return truncated;
   }
 
   return (
     <div className='card-container'>
-      {/* renders news data*/}
-      {newsData.map((newsItem) => (
-        <div className='card'  key={newsItem.title}>
-          <h2>{newsItem.title}</h2>
-          {newsItem.urlToImage && <img src={newsItem.urlToImage} alt="News Thumbnail" />}
-          <p>{truncateContent(newsItem.description)}</p>
-          <a href={newsItem.url} target="_blank" rel="noopener noreferrer">
-            Read More
-          </a>
-        </div>
+      <Slider {...settings}>
+        {newsData.map((newsItem) => (
+          <div className='card' key={newsItem.title}>
+            <h2>{newsItem.title}</h2>
+            {newsItem.urlToImage && <img src={newsItem.urlToImage} alt="News Thumbnail" />}
+            <p>{truncateContent(newsItem.description)}</p>
+            <a href={newsItem.url} target="_blank" rel="noopener noreferrer">
+              Read More
+            </a>
+          </div>
         ))}
-    </div>  );
+      </Slider>
+
+    </div>
+  );
 };
 
 export default NewsApi;

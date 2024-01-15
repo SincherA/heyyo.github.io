@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import './sharedStyles.css';
 
-const MealApi = () => {
+const MealApi = ({ slider = false }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -39,7 +40,7 @@ const MealApi = () => {
   }
 
   return (
-    <div className="card-container">
+    <div className={slider ? 'card-container' : 'card-container-wrap'}>
       {/* Render meal data */}
       {data.map(category => (
         <div key={category.idCategory} className="card">
@@ -56,5 +57,10 @@ const MealApi = () => {
     </div>
   );
 };
+
+MealApi.propTypes = {
+  slider: PropTypes.bool,
+};
+
 
 export default MealApi;

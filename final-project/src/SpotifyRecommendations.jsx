@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import './sharedStyles.css'
 
 
-const SpotifyRecommendations = () => {
+const SpotifyRecommendations = ({ slider = false }) => {
   const [featuredPlaylists, setFeaturedPlaylists] = useState([]);
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const SpotifyRecommendations = () => {
   }, []);
 
   return (
-    <div className="card-container">
+    <div className={slider ? 'card-container' : 'card-container-wrap'}>
       {featuredPlaylists.map(playlist => (
         <div key={playlist.id} className="card">
           <img src={playlist.images[0].url} alt={playlist.name} />
@@ -58,6 +59,10 @@ const SpotifyRecommendations = () => {
       ))}
     </div>
   );
+};
+
+SpotifyRecommendations.propTypes = {
+  slider: PropTypes.bool,
 };
 
 export default SpotifyRecommendations

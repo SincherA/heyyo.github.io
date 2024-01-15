@@ -1,24 +1,35 @@
-*{  box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
+
 .card-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.7) transparent;
 }
 
+.card-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.card-container::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.7);
+  border-radius: 4px;
+}
 
 .card {
+  flex: 0 0 auto;
   outline: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
   margin: 5px;
-  width: 20%;
-  box-sizing:border-box;
+  width: 30%;
+  box-sizing: border-box;
 }
-
-/* .card:hover {
-  transform: scale(1.05);
-} */
 
 .card img {
   width: 100%;
@@ -40,4 +51,11 @@
 
 .card p {
   margin-bottom: 12px;
+}
+
+.api-container {
+  margin-bottom: 30px;
+}
+.api-container h2 {
+  margin-bottom: 2px; /* Adjust this value as needed */
 }

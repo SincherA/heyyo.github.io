@@ -2,11 +2,9 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Modal from 'react-modal';
 import './modal.css'
-
 import logo from '/public/vite.svg'
 import './navbar.css';
 
-// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#root')
 
 const Navbar = () => {

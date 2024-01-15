@@ -15,10 +15,22 @@ function App() {
       <Routes>
         <Route path="/" element={
             <>
-              <NewsApi />
-              <SpotifyRecommendations />
-              <MovieApi />
-              <MealApi />
+              <div className="api-container">
+                <h2>News to read</h2>
+                <NewsApi />
+              </div>
+              <div className="api-container">
+                <h2>Music to listen</h2>
+                <SpotifyRecommendations />
+              </div>
+              <div className="api-container">
+                <h2>Movies to watch</h2>
+                <MovieApi />
+              </div>
+              <div className="api-container">
+                <h2>Food to cook</h2>
+                <MealApi />
+              </div>
             </>
           }/>
         <Route path="/news" element={<><h2>News</h2><NewsApi /></>} />

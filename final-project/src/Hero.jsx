@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { account } from './appwriteConfig.js';
 import { ID } from 'appwrite';
-
 import './hero.css';
 
 const Hero = () => {
@@ -11,7 +10,7 @@ const Hero = () => {
 
   const register = async () => {
     try {
-      let userId = ID.unique();
+      const userId = ID.unique();
       console.log(userId);
       const response = await account.create(userId, email, password, name);
       console.log(response);
@@ -31,7 +30,6 @@ const Hero = () => {
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
       <button onClick={(e) => {
         e.preventDefault();
-        console.log('clicked');
         register();
       }}>Register</button>
     </div>

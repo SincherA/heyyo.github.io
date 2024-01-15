@@ -17,19 +17,19 @@ function App() {
             <>
               <div className="api-container">
                 <h2>News to read</h2>
-                <NewsApi />
+                <NewsApi slider />
               </div>
               <div className="api-container">
                 <h2>Music to listen</h2>
-                <SpotifyRecommendations />
+                <SpotifyRecommendations slider />
               </div>
               <div className="api-container">
                 <h2>Movies to watch</h2>
-                <MovieApi />
+                <MovieApi slider />
               </div>
               <div className="api-container">
                 <h2>Food to cook</h2>
-                <MealApi />
+                <MealApi slider />
               </div>
             </>
           }/>

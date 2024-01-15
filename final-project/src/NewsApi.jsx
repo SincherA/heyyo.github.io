@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import './sharedStyles.css'
 
-const NewsApi = () => {
+const NewsApi = ({ slider = false }) => {
   // State variables
   const [newsData, setNewsData] = useState([]);
 
@@ -32,7 +33,7 @@ const NewsApi = () => {
   }
 
   return (
-    <div className='card-container'>
+    <div className={slider ? 'card-container' : 'card-container-wrap'}>
         {newsData.map((newsItem) => (
           <div className='card' key={newsItem.title}>
             <h2>{newsItem.title}</h2>
@@ -45,6 +46,10 @@ const NewsApi = () => {
         ))}
     </div>
   );
+};
+
+NewsApi.propTypes = {
+  slider: PropTypes.bool,
 };
 
 export default NewsApi;

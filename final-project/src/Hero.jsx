@@ -11,20 +11,37 @@ const Hero = () => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [feedback, setFeedback] = useState(''); // New state variable for feedback
 
   const register = async () => {
+    // Basic validation
+    if (!name || !email || !password) {
+      setFeedback('Please fill in all fields.');
+      return;
+    }
+
     try {
       const userId = ID.unique();
-      console.log(userId);
       const response = await account.create(userId, email, password, name);
       console.log(response);
+      setFeedback('Registration successful!'); // Update feedback on success
+      setEmail('');
+      setPassword('');
+      setName('');
     } catch (error) {
       console.error(error);
+      // Check if the error message contains the specific error string
+      if (error.message.includes('A user with the same id, email, or phone already exists')) {
+        setFeedback('A user with this email or username already exists.'); // Update feedback on duplicate user
+      } else {
+        setFeedback('Registration failed. Please try again.'); // Update feedback on other errors
+      }
     }
   };
 
   const openModal = () => {
     setIsModalOpen(true);
+    setFeedback(''); // Reset feedback when modal is opened
   };
 
   const closeModal = () => {
@@ -45,12 +62,13 @@ const Hero = () => {
         contentLabel="Registration Form"
       >
         <h2>Register</h2>
+        {feedback && <p>{feedback}</p>} {/* Display feedback if it exists */}
         <form onSubmit={(e) => {
           e.preventDefault();
           register();
         }}>
           <label>
-            Full Name:
+            Username:
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
           </label>
           <label>

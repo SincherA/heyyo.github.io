@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // Add useEffect here
 import Modal from 'react-modal';
 import { account } from './appwriteConfig.js';
 import './modal.css'
@@ -13,6 +13,15 @@ const Navbar = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loggedInUser, setLoggedInUser] = useState('');
+  const [errorMessage, setErrorMessage] = useState(''); // New state variable for error message
+
+  // Check local storage for the logged in user's email when the component mounts
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+      setLoggedInUser(loggedInUser);
+    }
+  }, []);
 
   const handleLoginClick = () => {
     setIsModalOpen(true);
@@ -24,14 +33,20 @@ const Navbar = () => {
 
   const login = async () => {
     try {
-      const response = await account.createSession(email, password);
+      const response = await account.createEmailSession(email, password);
       console.log(response);
       setLoggedInUser(email);
       setEmail('');
       setPassword('');
       setIsModalOpen(false);
+      setErrorMessage(''); // Clear the error message upon successful login
+
+      // Store the logged in user's email in local storage
+      localStorage.setItem('loggedInUser', email);
     } catch (error) {
       console.error(error);
+      // Set the error message when login fails
+      setErrorMessage('Invalid credentials. Please check the email and password.');
     }
   };
 
@@ -39,6 +54,9 @@ const Navbar = () => {
     try {
       await account.deleteSession('current');
       setLoggedInUser('');
+
+      // Remove the logged in user's email from local storage
+      localStorage.removeItem('loggedInUser');
     } catch (error) {
       console.error(error);
     }
@@ -69,6 +87,7 @@ const Navbar = () => {
         contentLabel="Login Form"
       >
         <h2>Login</h2>
+        {errorMessage && <p>{errorMessage}</p>} {/* Display the error message here */}
         <form onSubmit={(e) => {
           e.preventDefault();
           login();

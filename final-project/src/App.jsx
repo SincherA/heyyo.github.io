@@ -1,11 +1,18 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import Navbar from './Navbar.jsx';
 import Hero from './Hero.jsx'
 import NewsApi from './NewsApi.jsx';
 import MovieApi from './MovieApi.jsx';
 import SpotifyRecommendations from './SpotifyRecommendations.jsx';
 import MealApi from './MealApi.jsx';
+import LoggedInDashboard from './LoggedInDashboard.jsx';
 // import './App.css'
+
+const PrivateRoute = ({ children }) => {
+  const loggedInUser = localStorage.getItem('loggedInUser');
+  return loggedInUser ? children : <Navigate to="/" />;
+};
 
 function App() {
   return (
@@ -37,9 +44,15 @@ function App() {
         <Route path="/music" element={<><h2>Music</h2><SpotifyRecommendations /></>} />
         <Route path="/movies" element={<><h2>Movies</h2><MovieApi /></>} />
         <Route path="/food" element={<><h2>Food</h2><MealApi /></>} />
+        <Route path="/dashboard" element={<PrivateRoute><LoggedInDashboard /></PrivateRoute>} />
+        <Route path="/myday" element={<PrivateRoute><LoggedInDashboard /></PrivateRoute>} />
       </Routes>
     </Router>
   );
 }
+
+PrivateRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default App;

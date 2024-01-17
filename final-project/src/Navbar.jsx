@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react'; // Add useEffect here
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { account } from './appwriteConfig.js';
 import './modal.css'
@@ -13,9 +13,10 @@ const Navbar = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loggedInUser, setLoggedInUser] = useState('');
-  const [errorMessage, setErrorMessage] = useState(''); // New state variable for error message
+  const [errorMessage, setErrorMessage] = useState('');
 
-  // Check local storage for the logged in user's email when the component mounts
+  const navigate = useNavigate();
+
   useEffect(() => {
     const loggedInUser = localStorage.getItem('loggedInUser');
     if (loggedInUser) {
@@ -35,17 +36,17 @@ const Navbar = () => {
     try {
       const response = await account.createEmailSession(email, password);
       console.log(response);
+
       setLoggedInUser(email);
       setEmail('');
       setPassword('');
       setIsModalOpen(false);
-      setErrorMessage(''); // Clear the error message upon successful login
+      setErrorMessage('');
 
-      // Store the logged in user's email in local storage
       localStorage.setItem('loggedInUser', email);
+      navigate('/dashboard');
     } catch (error) {
       console.error(error);
-      // Set the error message when login fails
       setErrorMessage('Invalid credentials. Please check the email and password.');
     }
   };
@@ -54,8 +55,8 @@ const Navbar = () => {
     try {
       await account.deleteSession('current');
       setLoggedInUser('');
+      navigate('/')
 
-      // Remove the logged in user's email from local storage
       localStorage.removeItem('loggedInUser');
     } catch (error) {
       console.error(error);
@@ -72,6 +73,7 @@ const Navbar = () => {
         <Link to="/music">Music</Link>
         <Link to="/movies">Movies</Link>
         <Link to="/food">Food</Link>
+        {loggedInUser && <Link to="/myday">My Day</Link>}
       </div>
       <div className="login-button">
         {loggedInUser ? (

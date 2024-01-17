@@ -1,7 +1,8 @@
 .dashboard-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 500px; /* Adjust this value to your liking */
 }
 
 .search-form {
@@ -11,6 +12,17 @@
 
 .weather-details {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the 200px to fit your content */
   gap: 10px;
+}
+
+.search-form input {
+  width: 300px; /* Adjust this value to your liking */
+  height: 40px; /* Adjust this value to your liking */
+  margin-right: 50px; /* Adjust this value to your liking */
+}
+
+.search-form button {
+  width: 200px; /* Adjust this value to your liking */
+  height: 30px; /* Adjust this value to your liking */
 }

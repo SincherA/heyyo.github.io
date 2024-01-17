@@ -18,7 +18,8 @@
 .weather-details {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the 200px to fit your content */
-  gap: 15px;
+  gap: 20px;
+  font-size: 18px;
 }
 
 .search-form input {

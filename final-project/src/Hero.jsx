@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // Import useEffect
 import { account } from './appwriteConfig.js';
 import { ID } from 'appwrite';
 import Modal from 'react-modal';
@@ -12,6 +12,13 @@ const Hero = () => {
   const [name, setName] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [feedback, setFeedback] = useState(''); // New state variable for feedback
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // New state variable for login status
+
+  // Check login status when component mounts
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    setIsLoggedIn(!!loggedInUser);
+  }, []);
 
   const register = async () => {
     // Basic validation
@@ -28,6 +35,7 @@ const Hero = () => {
       setEmail('');
       setPassword('');
       setName('');
+      setIsLoggedIn(true); // Update login status on successful registration
     } catch (error) {
       console.error(error);
       // Check if the error message contains the specific error string
@@ -54,7 +62,7 @@ const Hero = () => {
       <p>check daily news, find music to listen</p>
       <p>explore movies and series</p>
       <p>find delicious recipes to cook</p>
-      <button onClick={openModal}>Register</button>
+      {!isLoggedIn && <button onClick={openModal}>Register</button>} {/* Render button conditionally based on login status */}
 
       <Modal
         isOpen={isModalOpen}

@@ -5,6 +5,11 @@
   gap: 500px; /* Adjust this value to your liking */
 }
 
+.weather-container {
+  background-color: #96E7FB;
+  padding: 0 40px;
+}
+
 .search-form {
   display: flex;
   align-items: center;
@@ -13,12 +18,12 @@
 .weather-details {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the 200px to fit your content */
-  gap: 10px;
+  gap: 15px;
 }
 
 .search-form input {
   width: 300px; /* Adjust this value to your liking */
-  height: 40px; /* Adjust this value to your liking */
+  height: 30px; /* Adjust this value to your liking */
   margin-right: 50px; /* Adjust this value to your liking */
 }
 

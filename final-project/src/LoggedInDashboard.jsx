@@ -42,28 +42,31 @@ const LoggedInDashboard = () => {
   }
   
   return (
-    <div>
-      {!isLoggedIn && <Hero />}
-      <p>Welcome to your Dashboard</p>
-      <div className="dashboard-container">
-        {weather && weather.weather && weather.weather.length > 0 && <h2>Weather in {weather.name}</h2>}
-        <form onSubmit={handleSearch} className="search-form">
-          <input type="text" name="city" placeholder="Search city" />
-          <button type="submit">Search</button>
-        </form>
-      </div>
-      {errorMessage && <p>{errorMessage}</p>}
-      {weather && weather.weather && weather.weather.length > 0 && (
-        <div className="weather-details">
-          <p>{weather.weather[0].description}</p>
-          <p>Temperature: {Math.round(weather.main.temp - 273.15)}°C</p>
-          <p>Feels like: {Math.round(weather.main.feels_like - 273.15)}°C</p>
-          <p>Min temperature: {Math.round(weather.main.temp_min - 273.15)}°C</p>
-          <p>Max temperature: {Math.round(weather.main.temp_max - 273.15)}°C</p>
-          <p>Cloudiness: {weather.clouds.all}%</p>
+      <div>
+        {!isLoggedIn && <Hero />}
+        <p>Welcome to your Dashboard</p>
+        <div className="weather-container">
+          <div className="dashboard-container">
+            {weather && weather.weather && weather.weather.length > 0 && <h2>Weather in {weather.name}</h2>}
+            <form onSubmit={handleSearch} className="search-form">
+              <input type="text" name="city" placeholder="Search city" />
+              <button type="submit">Search</button>
+            </form>
+          </div>
+          {errorMessage && <p>{errorMessage}</p>}
+          {weather && weather.weather && weather.weather.length > 0 && (
+            <div className="weather-details">
+              <p>{weather.weather[0].description}</p>
+              <p>Temperature: {Math.round(weather.main.temp - 273.15)}°C</p>
+              <p>Feels like: {Math.round(weather.main.feels_like - 273.15)}°C</p>
+              <p>Min temperature: {Math.round(weather.main.temp_min - 273.15)}°C</p>
+              <p>Max temperature: {Math.round(weather.main.temp_max - 273.15)}°C</p>
+              <p>Cloudiness: {weather.clouds.all}%</p>
+            </div>
+          )}
         </div>
-      )}
-    </div>
-  );};
+      </div>
+    );
+  };
 
 export default LoggedInDashboard;

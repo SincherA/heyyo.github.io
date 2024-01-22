@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './toDoList.css';
 import { BiChevronRightCircle, BiChevronLeftCircle, BiBadgeCheck, BiTrash, BiEdit } from "react-icons/bi";
+import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 
 function ToDoList() {
   const [input, setInput] = useState('');
@@ -100,7 +101,9 @@ function ToDoList() {
                 <button className="edit-button" onClick={() => handleEdit(todos, setTodos, index)}><BiEdit /></button>
                 <button className="progress-button" onClick={() => handleMoveToInProgress(index)}><BiChevronRightCircle /></button>
                 <button className="completed-button" onClick={() => handleDeleteTodo(index)}><BiTrash /></button>
-              </div>            </div>))}
+              </div>           
+            </div>
+          ))}
         </div>
         <div className="column in-progress-column">
           <h2>In Progress</h2>
@@ -116,8 +119,8 @@ function ToDoList() {
                 <span>{todo.text}</span>
               )}
               <div className="button-group">
-                <button onClick={() => handleMoveBackToTodos(index)}><BiChevronLeftCircle /></button>
-                <button onClick={() => handleMoveToCompleted(index)}><BiBadgeCheck /></button>
+                <button className="progress-button" onClick={() => handleMoveBackToTodos(index)}><BiChevronLeftCircle /></button>
+                <button className="edit-button" onClick={() => handleMoveToCompleted(index)}><BiBadgeCheck /></button>
               </div>
             </div>
           ))}
@@ -128,12 +131,12 @@ function ToDoList() {
             <div key={index} className='todo-item'>
               <span>{todo.text}</span>
               <div className="button-group">
-                <button onClick={() => handleMoveToInProgressFromCompleted(index)}><BiChevronLeftCircle /></button>
-                <button onClick={() => handleDeleteFromCompleted(index)}><BiTrash /></button>
+                <button className="progress-button" onClick={() => handleMoveToInProgressFromCompleted(index)}><BiChevronLeftCircle /></button>
+                <button className="completed-button" onClick={() => handleDeleteFromCompleted(index)}><BiTrash /></button>
               </div>
             </div>
           ))}
-        </div>      
+        </div>
       </div>
     </div>
   );

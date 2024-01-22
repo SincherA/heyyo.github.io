@@ -46,6 +46,13 @@ function ToDoList() {
     setTodos(todos.filter((_, i) => i !== index));
   };
 
+  const handleMoveBackToTodos = (index) => {
+    let newInProgress = [...inProgress];
+    let movedTodo = newInProgress.splice(index, 1)[0];
+    setTodos([...todos, movedTodo]);
+    setInProgress(newInProgress);
+  };
+
   const handleMoveToCompleted = (index) => {
     setCompleted([...completed, inProgress[index]]);
     setInProgress(inProgress.filter((_, i) => i !== index));
@@ -57,6 +64,10 @@ function ToDoList() {
 
   const handleMoveToInProgressFromCompleted = (index) => {
     setInProgress([...inProgress, completed[index]]);
+    setCompleted(completed.filter((_, i) => i !== index));
+  };
+
+  const handleDeleteFromCompleted = (index) => {
     setCompleted(completed.filter((_, i) => i !== index));
   };
 
@@ -73,7 +84,7 @@ function ToDoList() {
       </div>
       <div className="columns">
         <div className="column todo-column">
-<h2>Todos</h2>
+          <h2>Todos</h2>
           {todos.map((todo, index) => (
             <div key={index} className='todo-item'>
               {todo.isEditing ? (
@@ -85,17 +96,29 @@ function ToDoList() {
               ) : (
                 <span>{todo.text}</span>
               )}
-              <button className="edit-button" onClick={() => handleEdit(todos, setTodos, index)}><BiEdit /></button>
-              <button className="progress-button" onClick={() => handleMoveToInProgress(index)}><BiChevronRightCircle /></button>
-              <button className="completed-button" onClick={() => handleDeleteTodo(index)}><BiTrash /></button>
-            </div>          ))}
+              <div className="button-group">
+                <button className="edit-button" onClick={() => handleEdit(todos, setTodos, index)}><BiEdit /></button>
+                <button className="progress-button" onClick={() => handleMoveToInProgress(index)}><BiChevronRightCircle /></button>
+                <button className="completed-button" onClick={() => handleDeleteTodo(index)}><BiTrash /></button>
+              </div>            </div>))}
         </div>
         <div className="column in-progress-column">
           <h2>In Progress</h2>
           {inProgress.map((todo, index) => (
             <div key={index} className='todo-item'>
-              {todo}
-              <button onClick={() => handleMoveToCompleted(index)}><BiBadgeCheck /></button>
+              {todo.isEditing ? (
+                <input
+                  type="text"
+                  value={todo.text}
+                  onChange={(e) => handleEditChange(inProgress, setInProgress, index, e.target.value)}
+                />
+              ) : (
+                <span>{todo.text}</span>
+              )}
+              <div className="button-group">
+                <button onClick={() => handleMoveBackToTodos(index)}><BiChevronLeftCircle /></button>
+                <button onClick={() => handleMoveToCompleted(index)}><BiBadgeCheck /></button>
+              </div>
             </div>
           ))}
         </div>
@@ -103,12 +126,14 @@ function ToDoList() {
           <h2>Completed</h2>
           {completed.map((todo, index) => (
             <div key={index} className='todo-item'>
-              {todo}
-              <button onClick={() => handleMoveToInProgressFromCompleted(index)}><BiChevronLeftCircle /></button>
-
+              <span>{todo.text}</span>
+              <div className="button-group">
+                <button onClick={() => handleMoveToInProgressFromCompleted(index)}><BiChevronLeftCircle /></button>
+                <button onClick={() => handleDeleteFromCompleted(index)}><BiTrash /></button>
+              </div>
             </div>
           ))}
-        </div>
+        </div>      
       </div>
     </div>
   );

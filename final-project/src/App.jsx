@@ -7,7 +7,7 @@ import MovieApi from './MovieApi.jsx';
 import SpotifyRecommendations from './SpotifyRecommendations.jsx';
 import MealApi from './MealApi.jsx';
 import LoggedInDashboard from './LoggedInDashboard.jsx';
-// import './App.css'
+import Footer from './Footer.jsx';
 
 const PrivateRoute = ({ children }) => {
   const loggedInUser = localStorage.getItem('loggedInUser');
@@ -47,6 +47,7 @@ function App() {
         <Route path="/dashboard" element={<PrivateRoute><LoggedInDashboard /></PrivateRoute>} />
         <Route path="/myday" element={<PrivateRoute><LoggedInDashboard /></PrivateRoute>} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

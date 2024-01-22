@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './toDoList.css';
-import { BiChevronRightCircle, BiChevronLeftCircle, BiBadgeCheck, BiTrash } from "react-icons/bi";
+import { BiChevronRightCircle, BiChevronLeftCircle, BiBadgeCheck, BiTrash, BiEdit } from "react-icons/bi";
 
 function ToDoList() {
   const [input, setInput] = useState('');
@@ -25,8 +25,20 @@ function ToDoList() {
   }, [completed, todos, inProgress]);
 
   const handleAddTodo = () => {
-    setTodos([...todos, input]);
+    setTodos([...todos, { text: input, isEditing: false }]);
     setInput('');
+  };
+
+  const handleEdit = (list, setList, index) => {
+    const newList = [...list];
+    newList[index].isEditing = !newList[index].isEditing;
+    setList(newList);
+  };
+
+  const handleEditChange = (list, setList, index, value) => {
+    const newList = [...list];
+    newList[index].text = value;
+    setList(newList);
   };
 
   const handleMoveToInProgress = (index) => {
@@ -53,6 +65,7 @@ function ToDoList() {
       <div className="header">
         <h1>TODO</h1>
         <h3>Total Todos: {todos.length + inProgress.length + completed.length}</h3>
+
       </div>
       <div className="input-field">
         <input type="text" className="todo-input" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Add new todo" />
@@ -60,19 +73,27 @@ function ToDoList() {
       </div>
       <div className="columns">
         <div className="column todo-column">
-          <h2>Todos</h2>
+<h2>Todos</h2>
           {todos.map((todo, index) => (
-            <div key={index}>
-              {todo}
-              <button onClick={() => handleMoveToInProgress(index)}><BiChevronRightCircle /></button>
-              <button onClick={() => handleDeleteTodo(index)}><BiTrash /></button>
-            </div>
-          ))}
+            <div key={index} className='todo-item'>
+              {todo.isEditing ? (
+                <input
+                  type="text"
+                  value={todo.text}
+                  onChange={(e) => handleEditChange(todos, setTodos, index, e.target.value)}
+                />
+              ) : (
+                <span>{todo.text}</span>
+              )}
+              <button className="edit-button" onClick={() => handleEdit(todos, setTodos, index)}><BiEdit /></button>
+              <button className="progress-button" onClick={() => handleMoveToInProgress(index)}><BiChevronRightCircle /></button>
+              <button className="completed-button" onClick={() => handleDeleteTodo(index)}><BiTrash /></button>
+            </div>          ))}
         </div>
         <div className="column in-progress-column">
           <h2>In Progress</h2>
           {inProgress.map((todo, index) => (
-            <div key={index}>
+            <div key={index} className='todo-item'>
               {todo}
               <button onClick={() => handleMoveToCompleted(index)}><BiBadgeCheck /></button>
             </div>
@@ -81,7 +102,7 @@ function ToDoList() {
         <div className="column completed-column">
           <h2>Completed</h2>
           {completed.map((todo, index) => (
-            <div key={index}>
+            <div key={index} className='todo-item'>
               {todo}
               <button onClick={() => handleMoveToInProgressFromCompleted(index)}><BiChevronLeftCircle /></button>
 

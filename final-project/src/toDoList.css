@@ -29,19 +29,70 @@
   cursor: pointer;
   border-radius: 4px;
 }
+
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.edit-button {
+  padding: 2px 6px;
+  background-color: #FFA500; /* Orange */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.progress-button {
+  padding: 2px 6px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.completed-button {
+  padding: 2px 6px;
+  background-color: #008CBA; /* Blue */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 .columns {
   display: flex;
   justify-content: space-between;
 }
 
 .column {
-  
   flex: 1;
   margin: 0 10px 10px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  
 }
 
 .todo-column {

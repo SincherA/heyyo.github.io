@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import './toDoList.css';
 import { BiChevronRightCircle, BiChevronLeftCircle, BiBadgeCheck, BiTrash, BiEdit } from "react-icons/bi";
-import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 
 function ToDoList() {
   const [input, setInput] = useState('');
@@ -75,9 +74,8 @@ function ToDoList() {
   return (
     <div className="todo-list">
       <div className="header">
-        <h1>TODO</h1>
+        <h2>ToDo&apos;s List</h2>
         <h3>Total Todos: {todos.length + inProgress.length + completed.length}</h3>
-
       </div>
       <div className="input-field">
         <input type="text" className="todo-input" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Add new todo" />

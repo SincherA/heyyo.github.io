@@ -9,6 +9,7 @@ import MealApi from './MealApi.jsx';
 import LoggedInDashboard from './LoggedInDashboard.jsx';
 import Footer from './Footer.jsx';
 
+
 const PrivateRoute = ({ children }) => {
   const loggedInUser = localStorage.getItem('loggedInUser');
   return loggedInUser ? children : <Navigate to="/" />;
@@ -22,19 +23,19 @@ function App() {
       <Routes>
         <Route path="/" element={
             <>
-              <div className="api-container">
-                
-          <NewsApi slider />
+              <div className="api-container-news">
+                <h2>News to read</h2>
+                <NewsApi slider />
               </div>
-              <div className="api-container">
+              <div className="api-container-music">
                 <h2>Music to listen</h2>
                 <SpotifyRecommendations slider />
               </div>
-              <div className="api-container">
+              <div className="api-container-movies">
                 <h2>Movies to watch</h2>
                 <MovieApi slider />
               </div>
-              <div className="api-container">
+              <div className="api-container-food">
                 <h2>Food to cook</h2>
                 <MealApi slider />
               </div>

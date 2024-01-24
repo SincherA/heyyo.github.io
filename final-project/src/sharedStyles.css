@@ -23,9 +23,9 @@
 
 .card {
   flex: 0 0 auto;
-  outline: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
+  outline: 3px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
   margin: 5px;
   width: 30%;
   box-sizing: border-box;
@@ -54,11 +54,36 @@
 }
 
 .api-container {
+  border-radius: 8px;
+  }
+
+.api-container-news{
   margin-bottom: 30px;
-  background-color: aqua;
+  background-color: #abd1c6;
+  border-radius: 4px;
 }
+
+.api-container-music{
+  margin-bottom: 30px;
+  background-color: #078080;
+  border-radius: 4px;
+}
+
+.api-container-movies{
+  margin-bottom: 30px;
+  background-color: #ff8e3c;
+  border-radius: 4px;
+}
+
+.api-container-food{
+  margin-bottom: 30px;
+  background-color: #fff5e1;
+  border-radius: 4px;
+}
+
+
 .api-container h2 {
-  margin-bottom: 2px; /* Adjust this value as needed */
+  margin-bottom: 2px; 
 }
 
 .card-container-wrap {

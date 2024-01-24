@@ -8,20 +8,20 @@ import SpotifyRecommendations from './SpotifyRecommendations.jsx';
 import MealApi from './MealApi.jsx';
 import LoggedInDashboard from './LoggedInDashboard.jsx';
 import Footer from './Footer.jsx';
-
+import './app.css'
 
 const PrivateRoute = ({ children }) => {
   const loggedInUser = localStorage.getItem('loggedInUser');
   return loggedInUser ? children : <Navigate to="/" />;
 };
 
-function App() {
+function App() {    
   return (
     <Router>
-      <Navbar />
-      <Hero />
-      <Routes>
-        <Route path="/" element={
+        <Navbar />
+        <Hero />
+        <Routes>
+          <Route path="/" element={
             <>
               <div className="api-container-news">
                 <h2>News to read</h2>
@@ -40,14 +40,14 @@ function App() {
                 <MealApi slider />
               </div>
             </>
-          }/>
-        <Route path="/news" element={<><h2>News</h2><NewsApi /></>} />
-        <Route path="/music" element={<><h2>Music</h2><SpotifyRecommendations /></>} />
-        <Route path="/movies" element={<><h2>Movies</h2><MovieApi /></>} />
-        <Route path="/food" element={<><h2>Food</h2><MealApi /></>} />
-        <Route path="/myday" element={<PrivateRoute><LoggedInDashboard /></PrivateRoute>} />
-      </Routes>
-      <Footer />
+          } />
+          <Route path="/news" element={<><h2>News</h2><NewsApi /></>} />
+          <Route path="/music" element={<><h2>Music</h2><SpotifyRecommendations /></>} />
+          <Route path="/movies" element={<><h2>Movies</h2><MovieApi /></>} />
+          <Route path="/food" element={<><h2>Food</h2><MealApi /></>} />
+          <Route path="/myday" element={<PrivateRoute><LoggedInDashboard /></PrivateRoute>} />
+        </Routes>
+        <Footer />
     </Router>
   );
 }

@@ -23,8 +23,8 @@ function App() {
         <Route path="/" element={
             <>
               <div className="api-container">
-                <h2>News to read</h2>
-                <NewsApi slider />
+                
+          <NewsApi slider />
               </div>
               <div className="api-container">
                 <h2>Music to listen</h2>
@@ -44,7 +44,6 @@ function App() {
         <Route path="/music" element={<><h2>Music</h2><SpotifyRecommendations /></>} />
         <Route path="/movies" element={<><h2>Movies</h2><MovieApi /></>} />
         <Route path="/food" element={<><h2>Food</h2><MealApi /></>} />
-        <Route path="/dashboard" element={<PrivateRoute><LoggedInDashboard /></PrivateRoute>} />
         <Route path="/myday" element={<PrivateRoute><LoggedInDashboard /></PrivateRoute>} />
       </Routes>
       <Footer />

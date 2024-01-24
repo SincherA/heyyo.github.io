@@ -32,6 +32,8 @@ const NewsApi = ({ slider = false }) => {
   }
 
   return (
+    <>
+    <h2>News to read</h2>
     <div className={slider ? 'card-container' : 'card-container-wrap'}>
         {newsData.map((newsItem) => (
           <div className='card' key={newsItem.title}>
@@ -44,6 +46,7 @@ const NewsApi = ({ slider = false }) => {
           </div>
         ))}
     </div>
+  </>
   );
 };
 

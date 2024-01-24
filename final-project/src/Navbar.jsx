@@ -44,7 +44,7 @@ const Navbar = () => {
       setErrorMessage('');
 
       localStorage.setItem('loggedInUser', email);
-      navigate('/dashboard');
+      navigate('/myday');
     } catch (error) {
       console.error(error);
       setErrorMessage('Invalid credentials. Please check the email and password.');

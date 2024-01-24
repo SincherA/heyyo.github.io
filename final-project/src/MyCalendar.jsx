@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import { BiTrash, BiEdit } from "react-icons/bi";
-
 import 'react-calendar/dist/Calendar.css';
 import './MyCalendar.css';
 

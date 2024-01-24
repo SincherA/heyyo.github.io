@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import Hero from './Hero';
-import ToDoList from './ToDoList';
+import Hero from './Hero.jsx';
+import ToDoList from './ToDoList.jsx';
 import './LoggedInDashboard.css'
-import MyCalendar from './MyCalendar';
+import MyCalendar from './MyCalendar.jsx';
 
 const LoggedInDashboard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -66,7 +66,7 @@ const LoggedInDashboard = () => {
             </div>
           )}
         </div>
-        <ToDoList /> {/* Add ToDoList component here */}
+        <ToDoList />
         <MyCalendar />
       </div>
     );

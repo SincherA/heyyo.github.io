@@ -92,3 +92,30 @@
   gap: 10px;
   padding: 10px;
 }
+
+@media (max-width: 768px) {
+  .card-container, .card-container-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .card h2 {
+    font-size: 1.2rem;
+  }
+
+  .api-container-news,
+  .api-container-music,
+  .api-container-movies,
+  .api-container-food {
+    margin-bottom: 20px;
+  }
+}

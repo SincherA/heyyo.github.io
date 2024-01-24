@@ -119,3 +119,23 @@
 .completed-column {
   background-color: #d4edda;
 }
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .todo-input {
+    width: 90%;
+  }
+
+  .columns {
+    flex-direction: column;
+  }
+
+  .column {
+    margin: 10px 0;
+  }
+}

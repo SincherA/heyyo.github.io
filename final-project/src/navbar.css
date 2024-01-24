@@ -65,3 +65,28 @@
 .login-button button:hover {
   background-color: #d95353; /* Change color on hover */
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .logo, .tabs, .login-button {
+    flex-grow: 0;
+    margin-bottom: 10px;
+  }
+
+  .tabs {
+    justify-content: space-evenly;
+  }
+
+  .tabs a {
+    font-size: 16px;
+    padding: 10px 14px;
+  }
+
+  .login-button button {
+    padding: 8px 28px;
+    font-size: 0.9em;
+  }
+}

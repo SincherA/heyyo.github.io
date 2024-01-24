@@ -13,9 +13,6 @@ const NewsApi = ({ slider = false }) => {
         // Fetch news data from API
         const response = await fetch(`https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${import.meta.env.VITE_NEWSAPI}`);
         const data = await response.json();
-
-        // console.log(data);
-
         // Update state with news data
         setNewsData(data.articles);
       } catch (error) {
@@ -28,8 +25,10 @@ const NewsApi = ({ slider = false }) => {
 
   function truncateContent(content) {
     const maxLength = 300;
-    const truncated = content.lenght > maxLength ? content.substring(0, maxLength) + '...' : content;
-    return truncated;
+    if (content && content.length > maxLength) {
+      return content.substring(0, maxLength) + '...';
+    }
+    return content;
   }
 
   return (

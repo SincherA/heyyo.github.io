@@ -1,6 +1,8 @@
 // MyCalendar.js
 import { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
+import { BiTrash, BiEdit } from "react-icons/bi";
+
 import 'react-calendar/dist/Calendar.css';
 import './MyCalendar.css';
 
@@ -8,6 +10,7 @@ const MyCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState('');
+  const [editingNoteIndex, setEditingNoteIndex] = useState(null);
 
   // Load notes from localStorage on component mount
   useEffect(() => {
@@ -26,10 +29,27 @@ const MyCalendar = () => {
 
   const handleNoteSave = () => {
     if (newNote.trim() !== '') {
-      const updatedNotes = [...notes, { date: selectedDate, note: newNote }];
+      const updatedNotes = [...notes];
+      if (editingNoteIndex !== null) {
+        updatedNotes[editingNoteIndex] = { date: selectedDate, note: newNote };
+        setEditingNoteIndex(null);
+      } else {
+        updatedNotes.push({ date: selectedDate, note: newNote });
+      }
       setNotes(updatedNotes);
       setNewNote('');
     }
+  };
+
+  const handleNoteDelete = (index) => {
+    const updatedNotes = [...notes];
+    updatedNotes.splice(index, 1);
+    setNotes(updatedNotes);
+  };
+
+  const handleNoteEdit = (index) => {
+    setNewNote(notes[index].note);
+    setEditingNoteIndex(index);
   };
 
   return (
@@ -67,6 +87,8 @@ const MyCalendar = () => {
             <div key={`${date.toISOString()}-${index}`} className="note-container">
               <p>Day {date.toLocaleDateString()}</p>
               <p>{note.note}</p>
+              <button onClick={() => handleNoteEdit(index)}><BiEdit className="icon edit-icon"/></button>
+              <button onClick={() => handleNoteDelete(index)}><BiTrash className="icon delete-icon"/></button>
             </div>
           );
         })}
@@ -75,4 +97,4 @@ const MyCalendar = () => {
   );
 }
   
-  export default MyCalendar;
+export default MyCalendar;

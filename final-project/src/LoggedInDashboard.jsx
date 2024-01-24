@@ -46,7 +46,6 @@ const LoggedInDashboard = () => {
   return (
       <div>
         {!isLoggedIn && <Hero />}
-        <p>Welcome to your Dashboard</p>
         <div className="weather-container">
           <div className="dashboard-container">
             {weather && weather.weather && weather.weather.length > 0 && <h2>Weather in {weather.name}</h2>}

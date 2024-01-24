@@ -8,7 +8,7 @@ import './hero.css';
 Modal.setAppElement('#root')
 
 const Hero = () => {
-  const location = useLocation(); // Get current location
+  const location = useLocation(); 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');

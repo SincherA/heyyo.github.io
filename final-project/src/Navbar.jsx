@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { account } from './appwriteConfig.js';
 import './modal.css'
-import logo from '/public/vite.svg'
+import logo from '/vite.svg'
 import './navbar.css';
 
 Modal.setAppElement('#root')

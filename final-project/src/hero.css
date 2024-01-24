@@ -4,7 +4,7 @@
   justify-content:flex-start ;
   align-items: flex-start;
   height: 55vh; /* This makes the hero section take up the full viewport height */
-  background-image: url('/public/brimage.jpeg');
+  background-image: url('/brimage.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Hero from './Hero';
 import ToDoList from './ToDoList';
+import Calendar from './MyCalendar'
 import './LoggedInDashboard.css'
 
 const LoggedInDashboard = () => {
@@ -67,6 +68,7 @@ const LoggedInDashboard = () => {
           )}
         </div>
         <ToDoList /> {/* Add ToDoList component here */}
+        <Calendar />
       </div>
     );
   };

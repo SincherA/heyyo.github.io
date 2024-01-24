@@ -1,0 +1,31 @@
+/* MyCalendar.css */
+
+.container {
+  display: flex;
+}
+
+.calendar-container {
+  margin-right: 20px;
+}
+
+.day-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.selected-day {
+  background-color: #efefef;
+}
+
+.notes-container {
+  width: 100%;
+}
+
+.note-container {
+  margin-bottom: 10px;
+}
+
+.note-container textarea {
+  width: 100%;
+}

@@ -72,10 +72,24 @@ const Hero = () => {
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="Registration Form"
+        style={{
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.75)', // semi-transparent black
+          },
+          content: {
+            color: 'lightsteelblue', // text color
+            width: '50%', // width of the modal
+            height: '60%', // height of the modal
+            margin: 'auto', // centers the modal
+            padding: '20px', // padding inside the modal
+            border: '1px solid lightsteelblue', // border color
+            borderRadius: '4px', // border radius
+          },
+        }}
       >
         <h2>Register</h2>
         {feedback && <p>{feedback}</p>}
-        <form onSubmit={(e) => {
+        <form className="registration-form" onSubmit={(e) => {
           e.preventDefault();
           register();
         }}>

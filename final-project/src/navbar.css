@@ -66,6 +66,34 @@
   background-color: #d95353; /* Change color on hover */
 }
 
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.registration-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.registration-form input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.registration-form button {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+}
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;

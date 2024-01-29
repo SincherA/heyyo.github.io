@@ -1,0 +1,12 @@
+{
+  "name": "final-project-sinchera",
+  "version": "1.0.0",
+  "description": "# App Component The App component is the root component of the application. It uses the react-router-dom library to manage routing within the application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

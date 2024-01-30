@@ -89,16 +89,16 @@ const Navbar = () => {
         contentLabel="Login Form"
         style={{
           overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.75)', // semi-transparent black
+            backgroundColor: 'rgba(0, 0, 0, 0.75)', 
           },
           content: {
-            color: 'lightsteelblue', // text color
-            width: '50%', // width of the modal
-            height: '60%', // height of the modal
-            margin: 'auto', // centers the modal
-            padding: '20px', // padding inside the modal
-            border: '1px solid lightsteelblue', // border color
-            borderRadius: '4px', // border radius
+            color: 'lightsteelblue', 
+            width: '50%', 
+            height: '60%', 
+            margin: 'auto', 
+            padding: '20px', 
+            border: '1px solid lightsteelblue', 
+            borderRadius: '4px', 
           },
         }}
       >
